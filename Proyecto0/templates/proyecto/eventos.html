@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <!--<link href="estilo.css" rel="stylesheet">-->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <title>Creación de eventos</title>
+    </head>
+    <body>
+        <div id="container">
+            <h1>Página de eventos</h1>
+            <h2>Usuario, {{ user.first_name }}</h2>
+            <ul>
+                <li>Currently logged in as: {{ user.username }}</li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        </div>
+        <div>
+            {% if submitted %}
+                <p class="success">
+                    Evento agregado!.
+                </p>
+            {% else %}
+                <form action="" method="post">
+                    <table>
+                        {{ form.as_p }}
+                        <tr>
+                            <td>
+                                <input type="submit" value="Agregar evento">
+                            </td>
+                        </tr>
+                    </table>
+            {% csrf_token %}
+        </form>
+    {% endif %}
+
+        </div>
+    </body>
+</html>

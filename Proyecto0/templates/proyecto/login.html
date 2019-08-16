@@ -1,0 +1,33 @@
+{% extends "proyecto/base.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+{% block body %}
+    <h2>Autenticación</h2>
+    <form action="{% url 'eventos' %}" method="post" name="login">
+    {% csrf_token %}
+        <label for="email" >
+            Correo electrónico:
+        </label>
+        <div class="inputs">
+            <input id="email" name="email" required="required" size="80" type="email" value="">
+        </div>
+        <label for="password">
+            Contraseña:
+        </label>
+        <div class="inputs">
+            <input id="password" name="password" required="required" size="80" type="password" value="">
+        </div>
+        <br>
+        <div>
+            <input id="logIn" name="logIn" type="submit" value="Log In">
+        </div>
+    </form>
+    <br>
+    {% if message %}
+        <div>
+            {{ message }}
+        </div>
+    {% endif %}
+{% endblock %}
